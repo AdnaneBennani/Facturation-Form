@@ -7,14 +7,16 @@ var myprice = document.getElementById("prix")
 var myquantity = document.getElementById("quantite")
 var mytva = document.getElementById("tva")
 
-function darkmode(){
+
+darkmodebtn.addEventListener("click",(mode) =>{
     document.body.classList.toggle("dark")
     darkmodebtn.classList.toggle("darktoggle")
-}
+})
+
+
+
 
 var myarray = [{fruit:"pomme",ref:"R1",},{fruit :"Banane",ref :"R2"},{fruit :"Kiwi",ref :"R3"},{fruit :"Orange",ref :"R4"}]    
-
-
 
 function searchrefer(){
     for(let i = 0 ;i < myarray.length;i++){
@@ -28,8 +30,6 @@ function searchrefer(){
         }
     }
 }
-
-
 
 function Addtotable(){
     event.preventDefault()
@@ -50,5 +50,3 @@ function Addtotable(){
 }else{
     alert("3emer")
 }}
-
-console.log(myarray)
