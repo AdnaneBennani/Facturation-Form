@@ -1,0 +1,33 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    padding: 0 20%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+form legend{
+    font-size: 50px;
+}
+.x{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: black;
+}
+.darkxlegend{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dark{
+    background-color: black;
+    color: white;
+}
+.darktoggle{
+    background-color: white;
+}

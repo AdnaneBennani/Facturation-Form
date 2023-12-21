@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body" >
+    <form>
+        <div class="darkxlegend">
+            <legend>Facturation</legend>
+            <div class="x" id="darkmode" onclick="darkmode()"></div>
+        </div>
+        <label>Reference</label>
+        <input type="text" name="" id="refer" oninput="searchrefer()">
+        <label>Designation</label>
+        <input type="text" name="" id="des">
+        <label>Prix</label>
+        <input type="text" name="" id="prix">
+        <label>Quantite</label>
+        <input type="text" name="" id="quantite">
+        <label>TVA</label>
+        <select name="" id="tva">TVA
+            <option value="10">10%</option>
+            <option value="20">20%</option>
+            <option value="30">30%</option>
+        </select>
+        <button onclick="Addtotable()">Ajouter A la liste</button>
+        <table border="1px" id="mytablele">
+            <tr>
+                <th>Ref</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Qte</th>
+                <th>TVA</th>
+                <th>TOTAL</th>
+            </tr>
+        </table>
+    </form>
+    <script src="main.js"></script>
+</body>
+</html>
