@@ -116,7 +116,7 @@ button:hover{
     color: white;
     border-radius: 7px;
     padding: 15px;
-    animation: notifanim 0.5s ease ;
+    animation: notifanim 4s ease ;
 
 }
 .NotifSuccess{
@@ -131,7 +131,7 @@ button:hover{
     color: white;
     border-radius: 7px;
     padding: 15px;
-    animation: notifanim 0.5s ease ;
+    animation: notifanim 4s ease- ;
 }
 .AlertTitle{
     display: flex;
@@ -144,13 +144,13 @@ button:hover{
 
 @keyframes notifanim {
     0%{
-        right: -200px;
+        right: -470px;
     }
     50%{
-
+        right: 0;
     }
     100%{
-        right: 0;
+        right: -470px;
     }
 }
 #des{
