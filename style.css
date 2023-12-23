@@ -9,6 +9,7 @@ body{
     height: 100vh;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 form{
     width: 100%;
@@ -145,4 +146,33 @@ button:hover{
 }
 #des{
     outline: none;
+}
+
+@media (max-width:800px) {
+    body{
+        overflow: scroll;
+    }
+    .tables{
+        width: 100%;
+    }
+    table{
+        width: ;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+    }
+    hr{
+        display: none;
+    }
+    .THEFORMS{
+        width: 100%;
+    }
+}
+@media (max-width :484px) {
+    .NotifError,.NotifSuccess{
+        width: 225px;
+        top: 0;
+    }
 }
