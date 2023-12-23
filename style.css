@@ -36,6 +36,7 @@ form legend{
     justify-content: space-between;
     align-items: center;
 }
+
 .dark{
     background-color: #0E0E10;
     color: white;
@@ -197,8 +198,14 @@ img{
         top: 0;
     }
 }
-@media (max-width : 360px) {
+@media (max-width : 387px) {
     th{
         font-size: 10px;
+    }
+    img{
+        width: 18px;
+    }
+    .darkxlegend legend{
+        font-size: 30px;
     }
 }
