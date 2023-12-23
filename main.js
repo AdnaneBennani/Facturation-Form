@@ -10,10 +10,11 @@ var myerrornotif = document.getElementById("errnotiff")
 var mysuccnotif = document.getElementById("succnotiff")
 var errorsuccestext = document.getElementById("textalert")
 
+
+
 darkmodebtn.addEventListener("click",() =>{
     document.body.classList.toggle("dark")
     darkmodebtn.classList.toggle("darktoggle")
-    mytable.classList.toggle("tabledarkmode")
 })
 
 
