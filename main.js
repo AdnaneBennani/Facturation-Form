@@ -93,8 +93,8 @@ function addref(){
     let ref = document.getElementById("newref").value;
     let refvalue = document.getElementById("newdesi").value;
     if(ref!="" && refvalue !=""){
-        for(let i = 0 ;i < myarray.length;i++){
-            if(ref != myarray[i].ref && refvalue != myarray[i].ref){
+        for(let i = 0 ;i <= myarray.length;i++){
+            if((ref !== myarray[i].ref) && (refvalue !== myarray[i].fruit)){
                 myarray.push({fruit :`${refvalue}`,ref:`${ref}`})
                 mysuccnotif.style.display = "block"
                 setTimeout(function(){
@@ -103,10 +103,11 @@ function addref(){
                 break;
             }else{
                 myerrornotif.style.display = "block"
-                errorsuccestext.innerHTML = "Already Exist"
+                errorsuccestext.innerHTML = "Reference or Designation Already Exist"
                 setTimeout(function(){
                     myerrornotif.style.display = "none"
                 },6000)
+                break;
             }
         }
     }else{
@@ -115,6 +116,7 @@ function addref(){
             myerrornotif.style.display = "none"
         },6000)
     }
+    console.log(myarray)
 }
 closeitem.addEventListener("click", ()=>{
     newitem.style.display = "none"
