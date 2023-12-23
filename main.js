@@ -54,6 +54,7 @@ function Addtotable(){
             <td>${mytva.value}</td>
             <td>${total.toFixed(2)}</td>
             </tr>`
+            
             mysuccnotif.style.display = "block"
             setTimeout(function(){
                 mysuccnotif.style.display = "none"
