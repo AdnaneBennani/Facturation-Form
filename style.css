@@ -57,13 +57,12 @@ select{
 }
 table{
     width: 100%;
-    border-collapse: collapse;
-    border: 2px solid black;
     text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 th,td{
     padding: 5px 10px;
-    border: 2px solid black;
 }
 hr{
     margin: 20px;
