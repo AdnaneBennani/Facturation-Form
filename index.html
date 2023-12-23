@@ -31,6 +31,8 @@
                 <option value="30">30%</option>
             </select>
             <button onclick="Addtotable()">Ajouter A la liste</button>
+            <button onclick="AddNEWref()">Ajouter Une Reference</button>
+
         </div>
         <hr>
         <div class="tables">
@@ -60,6 +62,16 @@
                 <i class="fa-solid fa-circle-exclamation"></i>
             </div>
             <p>Data Added Successfully</p>
+        </div>
+    </div>
+    <div id="NewReference">
+        <div>
+            <input type="text" placeholder="Reference" id="newref">
+            <input type="text" placeholder="Designation" id="newdesi">
+            <button class="btn" onclick=" addref()">Add</button>
+        </div>
+        <div>
+            <button class="btn" id="closerefe">Close</button>
         </div>
     </div>
     <script src="main.js"></script>
