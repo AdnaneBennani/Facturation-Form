@@ -14,9 +14,13 @@ var closeitem = document.getElementById("closerefe")
 
 var myarray = [
     {
-        fruit:"",
-        ref:""
-    }
+        fruit:"Banane",
+        ref:"R1"
+    },
+    {
+        fruit:"Orange",
+        ref:"R2"
+    },
 ]    
 
 darkmodebtn.addEventListener("click",() =>{
@@ -99,7 +103,6 @@ function addref(){
         for(let i = 0 ;i <= myarray.length;i++){
             if((ref !== myarray[i].ref) && (refvalue !== myarray[i].fruit)){
                 myarray.push({fruit :`${refvalue}`,ref:`${ref}`})
-                localStorage.setItem('myArray', JSON.stringify(myarray));
                 mysuccnotif.style.display = "block"
                 setTimeout(function(){
                     mysuccnotif.style.display = "none"
@@ -125,11 +128,3 @@ function addref(){
 closeitem.addEventListener("click", ()=>{
     newitem.style.display = "none"
 })
-
-function loadarray() {
-    var savedArray = JSON.parse(localStorage.getItem('myArray'));
-    if (savedArray) {
-        myarray = savedArray; // Update myArray with the data from localStorage
-    }
-  }
-loadarray();
