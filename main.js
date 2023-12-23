@@ -12,14 +12,17 @@ var errorsuccestext = document.getElementById("textalert")
 var newitem = document.getElementById("NewReference")
 var closeitem = document.getElementById("closerefe")
 
+var myarray = [
+    {
+        fruit:"",
+        ref:""
+    }
+]    
 
 darkmodebtn.addEventListener("click",() =>{
     document.body.classList.toggle("dark")
     darkmodebtn.classList.toggle("darktoggle")
 })
-
-
-var myarray = [{fruit:"Pomme",ref:"R1",}]    
 
 function searchrefer(){
     for(let i = 0 ;i < myarray.length;i++){
@@ -42,7 +45,7 @@ function searchrefer(){
 
 
 function Addtotable(){
-    event.preventDefault()
+    event.preventDefault()  
     if(referen.value != "" && designa.value != "" && myprice.value != "" && myquantity.value != "" && mytva.value != "" ){
         if(designa.value != "Not Defined"){
             let total = ((myprice.value * myquantity.value) - (mytva.value / 100))
@@ -123,10 +126,10 @@ closeitem.addEventListener("click", ()=>{
     newitem.style.display = "none"
 })
 
-function loadArrayFromLocalStorage() {
+function loadarray() {
     var savedArray = JSON.parse(localStorage.getItem('myArray'));
     if (savedArray) {
         myarray = savedArray; // Update myArray with the data from localStorage
     }
   }
-loadArrayFromLocalStorage();
+loadarray();
