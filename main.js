@@ -79,4 +79,3 @@ function Addtotable(){
         myerrornotif.style.display = "none"
     },4000)
 }}
-
