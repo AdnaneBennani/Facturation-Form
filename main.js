@@ -17,7 +17,7 @@ darkmodebtn.addEventListener("click",() =>{
 })
 
 
-var myarray = [{fruit:"pomme",ref:"R1",},{fruit :"Banane",ref :"R2"},{fruit :"Kiwi",ref :"R3"},{fruit :"Orange",ref :"R4"}]    
+var myarray = [{fruit:"Pomme",ref:"R1",},{fruit :"Banane",ref :"R2"},{fruit :"Kiwi",ref :"R3"},{fruit :"Orange",ref :"R4"}]    
 
 function searchrefer(){
     for(let i = 0 ;i < myarray.length;i++){
