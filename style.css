@@ -61,7 +61,7 @@ table{
     border: 2px solid black;
     text-align: center;
 }
-table th,td{
+th,td{
     padding: 5px 10px;
     border: 2px solid black;
 }
@@ -83,7 +83,7 @@ button:hover{
     cursor: pointer;
 }
 .tabledarkmode{
-    border: 2px solid white !important;
+    border: 2px solid white;
 }
 .NotifError{
     display: none;
