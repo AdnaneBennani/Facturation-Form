@@ -45,9 +45,15 @@ input{
     border-radius: 2px;
     border: none;
 }
+input:focus{
+    outline: 2px solid rgb(16, 66, 158) ;
+}
 select{
     padding: 10px;
+    outline: 1px solid rgb(16, 66, 158) ;
+
 }
+
 .tables{
     width: 50%;
     margin-top: 20px;
@@ -136,4 +142,7 @@ button:hover{
     100%{
         right: 0;
     }
+}
+#des{
+    outline: none;
 }
