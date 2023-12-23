@@ -69,6 +69,7 @@ function Addtotable(){
         for(i=0;i<allinput.length;i++){
             allinput[i].value = ""
             mytva.value = "0"
+            designa.style.border = "1px solid black"
         }
 }else{
     myerrornotif.style.display = "block"
