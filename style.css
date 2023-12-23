@@ -156,6 +156,9 @@ button:hover{
 #des{
     outline: none;
 }
+img{
+    width: 28px;
+}
 
 @media (max-width:981px) {
     body{
