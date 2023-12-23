@@ -51,7 +51,7 @@ function Addtotable(){
             <td>${myprice.value}</td>
             <td>${myquantity.value}</td>
             <td>${mytva.value}</td>
-            <td>${total.toFixed(2)} DH</td>
+            <td>${total.toFixed(2)}</td>
             </tr>`
             mysuccnotif.style.display = "block"
             setTimeout(function(){
