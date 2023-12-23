@@ -58,13 +58,13 @@ function Addtotable(){
             mysuccnotif.style.display = "block"
             setTimeout(function(){
                 mysuccnotif.style.display = "none"
-            },4000)
+            },6000)
         }else{
             myerrornotif.style.display = "block"
             errorsuccestext.innerHTML = "Designation Not defined"
             setTimeout(function(){
                 myerrornotif.style.display = "none"
-            },4000)
+            },6000)
         }
         let allinput = document.getElementsByTagName("input")
         console.log(allinput)
@@ -77,5 +77,5 @@ function Addtotable(){
     myerrornotif.style.display = "block"
     setTimeout(function(){
         myerrornotif.style.display = "none"
-    },4000)
+    },6000)
 }}

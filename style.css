@@ -117,7 +117,7 @@ button:hover{
     color: white;
     border-radius: 7px;
     padding: 15px;
-    animation: notifanim 4s ease ;
+    animation: notifanim 6s ease ;
 
 }
 .NotifSuccess{
@@ -132,7 +132,7 @@ button:hover{
     color: white;
     border-radius: 7px;
     padding: 15px;
-    animation: notifanim 4s ease- ;
+    animation: notifanim 6s ease ;
 }
 .AlertTitle{
     display: flex;
