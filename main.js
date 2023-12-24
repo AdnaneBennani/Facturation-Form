@@ -92,14 +92,14 @@ function addref(){
     let ref = document.getElementById("newref").value;
     let refvalue = document.getElementById("newdesi").value;
     if (ref !== "" && refvalue !== "") {
-        let isExisting = false;
+        let Exist = false;
         for (let i = 0; i < myarray.length; i++) {
             if (myarray[i].ref === ref || myarray[i].fruit === refvalue) {
-                isExisting = true;
+                Exist = true;
                 break;
             }
-            }
-            if(!isExisting) {
+        }
+            if(!Exist) {
                 myarray.push({ fruit: refvalue, ref: ref });
                 Succesmsg("Reference Added Successfully");
             }else{
