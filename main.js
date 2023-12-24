@@ -57,7 +57,7 @@ function Addtotable(){
     if(referen.value != "" && designa.value != "" && myprice.value != "" && myquantity.value != "" && mytva.value != "" ){
         if(designa.value != "Not Defined"){
             let total = ((myprice.value * myquantity.value) - (mytva.value / 100))
-            let mytable = mytable.innerHTML +=`<tr>
+             let savetable = mytable.innerHTML +=`<tr>
             <td>${referen.value}</td>
             <td>${designa.value}</td>
             <td>${myprice.value}</td>
@@ -66,7 +66,7 @@ function Addtotable(){
             <td>${total.toFixed(2)}</td>
             </tr>`
             Succesmsg("Added Succefully to the table ");
-            localStorage.setItem('mytable', JSON.stringify(mytable));
+            localStorage.setItem('mytable', JSON.stringify(savetable));
         }else{
             Errormsg("Designation Not Defined")
         }
@@ -77,9 +77,10 @@ function Addtotable(){
             mytva.value = "0"
             designa.style.border = "none"
         }
-}else{
-    Errormsg("Inputs Are Empty !!")
-}}
+    }else{
+        Errormsg("Inputs Are Empty !!")
+    }
+}
 
 function AddNEWref(){
     event.preventDefault()
@@ -139,4 +140,5 @@ function loadArrayFromLocalStorage() {
         myarray = savedArray; // Update myArray with the data from localStorage
     }
 }
-mytable.innerHTML += JSON.parse(localStorage.getItem('mytable'))
+
+    mytable.innerHTML = JSON.parse(localStorage.getItem('mytable'))
