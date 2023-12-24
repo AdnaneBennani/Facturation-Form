@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/cfd6df17a2.js" crossorigin="anonymous"></script>
     <title>Facturation Form</title>
-    <link rel="shortcut icon" href="file-invoice-solid.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="file-invoice-dollar-solid.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="body" >
     <form>
         <div class="THEFORMS">
             <div class="darkxlegend">
-                <legend> <img src="file-invoice-solid.svg">Facturation</legend>
+                <legend> <img id="facturimg" src="file-invoice-solid.svg">Facturation</legend>
                 <div class="x" id="darkmode"></div>
             </div>
             <label>Reference </label>
@@ -48,29 +48,16 @@
             </table>
         </div>
     </form>
-    <div class="Notif">
-        <div class="NotifError" id="errnotiff">
-            <div class="AlertTitle">
-                <h3> Error :</h3>
-                <i class="fa-solid fa-circle-exclamation"></i>
-            </div>
-            <p id="textalert">Inputs Are Empty</p>
-        </div>
-        <div class="NotifSuccess" id="succnotiff">
-            <div class="AlertTitle">
-                <h3> Succes :</h3>
-                <i class="fa-solid fa-circle-exclamation"></i>
-            </div>
-            <p>Data Added Successfully</p>
-        </div>
+    <div id="NotifBox">
+        
     </div>
     <div id="NewReference">
         <div>
             <input type="text" placeholder="Reference" id="newref">
             <input type="text" placeholder="Designation" id="newdesi">
-            <button class="btn" onclick=" addref()">Add</button>
         </div>
         <div>
+            <button class="btn" onclick=" addref()">Add</button>
             <button class="btn" id="closerefe">Close</button>
         </div>
     </div>

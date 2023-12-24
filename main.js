@@ -8,10 +8,12 @@ var myquantity = document.getElementById("quantite")
 var mytva = document.getElementById("tva")
 var myerrornotif = document.getElementById("errnotiff")
 var mysuccnotif = document.getElementById("succnotiff")
-var errorsuccestext = document.getElementById("textalert")
+var errortext = document.getElementById("textalert")
+var succestext = document.getElementById("textalertSUC")
 var newitem = document.getElementById("NewReference")
 var closeitem = document.getElementById("closerefe")
-
+var facimg = document.getElementById("facturimg")
+var Notifplace = document.getElementById("NotifBox")
 var myarray = [
     {
         fruit:"Banane",
@@ -26,6 +28,11 @@ var myarray = [
 darkmodebtn.addEventListener("click",() =>{
     document.body.classList.toggle("dark")
     darkmodebtn.classList.toggle("darktoggle")
+    if (facimg.src.includes('file-invoice-solid.svg')) {
+        facimg.src = 'file-invoice-dollar-solid.svg';
+    } else{
+        facimg.src = 'file-invoice-solid.svg';
+    }
 })
 
 function searchrefer(){
@@ -61,17 +68,9 @@ function Addtotable(){
             <td>${mytva.value}</td>
             <td>${total.toFixed(2)}</td>
             </tr>`
-            
-            mysuccnotif.style.display = "block"
-            setTimeout(function(){
-                mysuccnotif.style.display = "none"
-            },6000)
+            Succesmsg("Added Succefully to the table ");
         }else{
-            myerrornotif.style.display = "block"
-            errorsuccestext.innerHTML = "Designation Not defined"
-            setTimeout(function(){
-                myerrornotif.style.display = "none"
-            },6000)
+            Errormsg("Designation Not Defined")
         }
         let allinput = document.getElementsByTagName("input")
         console.log(allinput)
@@ -81,19 +80,12 @@ function Addtotable(){
             designa.style.border = "none"
         }
 }else{
-    myerrornotif.style.display = "block"
-    setTimeout(function(){
-        myerrornotif.style.display = "none"
-    },6000)
+    Errormsg("Inputs Are Empty !!")
 }}
 
 function AddNEWref(){
     event.preventDefault()
     newitem.style.display = "flex"
-    // let ref = prompt("Entrer une nouvelle reference");
-    // let refvalue = prompt("Entrer sa designation");
-    // myarray.push({fruit :`${refvalue}`,ref:`${ref}`})
-    // console.log(myarray)
 }
 function addref(){
     event.preventDefault()
@@ -103,28 +95,39 @@ function addref(){
         for(let i = 0 ;i <= myarray.length;i++){
             if((ref !== myarray[i].ref) && (refvalue !== myarray[i].fruit)){
                 myarray.push({fruit :`${refvalue}`,ref:`${ref}`})
-                mysuccnotif.style.display = "block"
-                setTimeout(function(){
-                    mysuccnotif.style.display = "none"
-                },6000)
+                Succesmsg(" Reference Added Succefully");
                 break;
             }else{
-                myerrornotif.style.display = "block"
-                errorsuccestext.innerHTML = "Reference or Designation Already Exist"
-                setTimeout(function(){
-                    myerrornotif.style.display = "none"
-                },6000)
+                Errormsg()
                 break;
             }
         }
     }else{
-        myerrornotif.style.display = "block"
-        setTimeout(function(){
-            myerrornotif.style.display = "none"
-        },6000)
+        Errormsg("Designation or Reference Empty")
     }
     console.log(myarray)
 }
 closeitem.addEventListener("click", ()=>{
     newitem.style.display = "none"
 })
+
+
+
+function Errormsg(msg){
+    let nf = document.createElement('div')
+    nf.classList.add('NotifError')
+    nf.innerHTML = msg
+    Notifplace.appendChild(nf)
+    setTimeout(()=>{
+        nf.remove();
+    },4000)
+}
+function Succesmsg(msg){
+    let nf = document.createElement('div')
+    nf.classList.add('NotifSuccess')
+    nf.innerHTML = msg
+    Notifplace.appendChild(nf)
+    setTimeout(()=>{
+        nf.remove();
+    },4000)
+}

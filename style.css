@@ -101,36 +101,7 @@ button:hover{
     cursor: pointer;
 }
 
-.NotifError{
-    display: none;
-    width: 450px;
-    position: absolute;
-    right: 0;
-    height: 100px;
-    bottom: 10px;
-    margin: 15px;
-    background-color: rgba(121, 10, 10, 0.849);
-    color: white;
-    border-radius: 7px;
-    padding: 15px;
-    animation: notifanim 6s ease ;
-
-}
-.NotifSuccess{
-    display: none;
-    width: 450px;
-    position: absolute;
-    right: 0;
-    height: 100px;
-    bottom: 10px;
-    margin: 15px;
-    background-color: rgba(23, 121, 10, 0.849);
-    color: white;
-    border-radius: 7px;
-    padding: 15px;
-    animation: notifanim 6s ease ;
-}
-.AlertTitle{
+Title{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -151,11 +122,52 @@ button:hover{
     align-items: center;
     gap: 15px;
     flex-direction: column;
+    box-sizing: border-box;
+}
+#NewReference input{
+    width: calc(100% - 20px);
+    margin: 10px;
 }
 .btn{
     margin: 0;
     border: none;
 }
+#NotifBox{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+    height: fit-content;
+}
+.NotifError{
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 450px;
+    height: 100px;
+    margin: 15px;
+    background-color: rgba(121, 10, 10, 0.849);
+    color: white;
+    border-radius: 7px;
+    padding: 15px;
+}
+.NotifSuccess{
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 450px;
+    height: 100px;
+    margin: 15px;
+    background-color: rgba(23, 121, 10, 0.849);
+    color: white;
+    border-radius: 7px;
+    padding: 15px;
+}
+
 @keyframes notifanim {
     0%{
         right: -470px;
@@ -205,7 +217,15 @@ img{
 @media (max-width :484px) {
     .NotifError,.NotifSuccess{
         width: 225px;
+    }
+    #NotifBox{
         top: 0;
+    }
+}
+@media (max-width :530px) {
+    #NewReference{
+        width: 280px;
+
     }
 }
 @media (max-width : 387px) {
