@@ -103,7 +103,7 @@ function addref(){
                 localStorage.setItem('myArray', JSON.stringify(myarray));
                 Succesmsg("Reference Added Successfully");
             }else{
-                Errormsg("already Exist");
+                Errormsg("Designation or Reference already Exist");
             }
         }else{
         Errormsg("Designation or Reference Empty");
@@ -113,8 +113,6 @@ function addref(){
 closeitem.addEventListener("click", ()=>{
     newitem.style.display = "none"
 })
-
-
 
 function Errormsg(msg){
     let nf = document.createElement('div')
@@ -141,4 +139,4 @@ function loadArrayFromLocalStorage() {
     }
 }
 
-    mytable.innerHTML = JSON.parse(localStorage.getItem('mytable'))
+mytable.innerHTML = JSON.parse(localStorage.getItem('mytable'))

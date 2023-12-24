@@ -91,7 +91,7 @@ button{
     padding: 10px 15px;
     background-color: rgb(16, 66, 158);
     outline: none;
-    border: 1px solid;
+    border: 1px solid rgb(16, 66, 158);
     color: white;
     font-weight: 700;
     transition: all ease 0.2s;
@@ -217,9 +217,6 @@ img{
 @media (max-width :484px) {
     .NotifError,.NotifSuccess{
         width: 225px;
-    }
-    #NotifBox{
-        top: 0;
     }
 }
 @media (max-width :530px) {
