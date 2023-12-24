@@ -91,19 +91,22 @@ function addref(){
     event.preventDefault()
     let ref = document.getElementById("newref").value;
     let refvalue = document.getElementById("newdesi").value;
-    if(ref!="" && refvalue !=""){
-        for(let i = 0 ;i <= myarray.length;i++){
-            if((ref !== myarray[i].ref) && (refvalue !== myarray[i].fruit)){
-                myarray.push({fruit :`${refvalue}`,ref:`${ref}`})
-                Succesmsg(" Reference Added Succefully");
-                break;
-            }else{
-                Errormsg()
+    if (ref !== "" && refvalue !== "") {
+        let isExisting = false;
+        for (let i = 0; i < myarray.length; i++) {
+            if (myarray[i].ref === ref || myarray[i].fruit === refvalue) {
+                isExisting = true;
                 break;
             }
-        }
-    }else{
-        Errormsg("Designation or Reference Empty")
+            }
+            if(!isExisting) {
+                myarray.push({ fruit: refvalue, ref: ref });
+                Succesmsg("Reference Added Successfully");
+            }else{
+                Errormsg("already Exist");
+            }
+        }else{
+        Errormsg("Designation or Reference Empty");
     }
     console.log(myarray)
 }
