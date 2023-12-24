@@ -16,14 +16,11 @@ var facimg = document.getElementById("facturimg")
 var Notifplace = document.getElementById("NotifBox")
 var myarray = [
     {
-        fruit:"Banane",
-        ref:"R1"
-    },
-    {
-        fruit:"Orange",
-        ref:"R2"
-    },
-]    
+        fruit:"",
+        ref:""
+    }
+]
+loadArrayFromLocalStorage();    
 
 darkmodebtn.addEventListener("click",() =>{
     document.body.classList.toggle("dark")
@@ -60,7 +57,7 @@ function Addtotable(){
     if(referen.value != "" && designa.value != "" && myprice.value != "" && myquantity.value != "" && mytva.value != "" ){
         if(designa.value != "Not Defined"){
             let total = ((myprice.value * myquantity.value) - (mytva.value / 100))
-            mytable.innerHTML +=`<tr>
+            let mytable = mytable.innerHTML +=`<tr>
             <td>${referen.value}</td>
             <td>${designa.value}</td>
             <td>${myprice.value}</td>
@@ -69,6 +66,7 @@ function Addtotable(){
             <td>${total.toFixed(2)}</td>
             </tr>`
             Succesmsg("Added Succefully to the table ");
+            localStorage.setItem('mytable', JSON.stringify(mytable));
         }else{
             Errormsg("Designation Not Defined")
         }
@@ -101,6 +99,7 @@ function addref(){
         }
             if(!Exist) {
                 myarray.push({ fruit: refvalue, ref: ref });
+                localStorage.setItem('myArray', JSON.stringify(myarray));
                 Succesmsg("Reference Added Successfully");
             }else{
                 Errormsg("already Exist");
@@ -134,3 +133,10 @@ function Succesmsg(msg){
         nf.remove();
     },4000)
 }
+function loadArrayFromLocalStorage() {
+    var savedArray = JSON.parse(localStorage.getItem('myArray'));
+    if (savedArray) {
+        myarray = savedArray; // Update myArray with the data from localStorage
+    }
+}
+mytable.innerHTML += JSON.parse(localStorage.getItem('mytable'))
