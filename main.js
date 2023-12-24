@@ -132,6 +132,7 @@ function Succesmsg(msg){
         nf.remove();
     },4000)
 }
+
 function loadArrayFromLocalStorage() {
     var savedArray = JSON.parse(localStorage.getItem('myArray'));
     if (savedArray) {
