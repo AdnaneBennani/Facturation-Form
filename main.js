@@ -11,26 +11,35 @@ var mysuccnotif = document.getElementById("succnotiff")
 var errortext = document.getElementById("textalert")
 var succestext = document.getElementById("textalertSUC")
 var newitem = document.getElementById("NewReference")
-var closeitem = document.getElementById("closerefe")
+var closeitem = document.querySelectorAll(".closerefe")
 var facimg = document.getElementById("facturimg")
 var Notifplace = document.getElementById("NotifBox")
+var printask = document.getElementById("PrintFunc")
+var listdrefer = document.getElementById("listdrefer")
+let refplace = document.getElementById("refplace")
+let desplae = document.getElementById("desplae")
+var mythememode = document.getElementById("mode")
+var allmybtn = document.getElementsByTagName("button")
+var allmyinp = document.getElementsByTagName("input")
+
+
 var myarray = [
     {
         fruit:"",
         ref:""
     }
 ]
-loadArrayFromLocalStorage();    
+loadstorage();    
 
-darkmodebtn.addEventListener("click",() =>{
-    document.body.classList.toggle("dark")
-    darkmodebtn.classList.toggle("darktoggle")
-    if (facimg.src.includes('file-invoice-solid.svg')) {
-        facimg.src = 'file-invoice-dollar-solid.svg';
-    } else{
-        facimg.src = 'file-invoice-solid.svg';
-    }
-})
+// darkmodebtn.addEventListener("click",() =>{
+//     document.body.classList.toggle("dark")
+//     darkmodebtn.classList.toggle("darktoggle")
+//     if (facimg.src.includes('file-invoice-solid.svg')) {
+//         facimg.src = 'file-invoice-dollar-solid.svg';
+//     } else{
+//         facimg.src = 'file-invoice-solid.svg';
+//     }
+// })
 
 function searchrefer(){
     for(let i = 0 ;i < myarray.length;i++){
@@ -110,9 +119,14 @@ function addref(){
     }
     console.log(myarray)
 }
-closeitem.addEventListener("click", ()=>{
-    newitem.style.display = "none"
+
+closeitem.forEach((item)=>{
+    item.addEventListener("click",()=>{
+        item.parentElement.parentElement.style.display = "none";
+    })
 })
+
+
 
 function Errormsg(msg){
     let nf = document.createElement('div')
@@ -133,11 +147,111 @@ function Succesmsg(msg){
     },4000)
 }
 
-function loadArrayFromLocalStorage() {
+function loadstorage() {
     var savedArray = JSON.parse(localStorage.getItem('myArray'));
     if (savedArray) {
-        myarray = savedArray; // Update myArray with the data from localStorage
+        myarray = savedArray; 
+    }
+}
+function showprintask(){
+    event.preventDefault()
+
+    printask.style.display = "flex"
+}
+
+function ClearAllT(){
+    event.preventDefault()
+    localStorage.removeItem('mytable')
+    Succesmsg("Table Cleared")
+    setTimeout(()=>{
+        location.reload();
+    },1000)
+}
+
+function liste(){
+    event.preventDefault()
+    listdrefer.style.display = "flex"
+    for(let i = 1 ; i<=myarray.length ; i++){
+        let h55 = document.createElement('h5')
+        let h555 = document.createElement('h5')
+        h55.innerHTML = myarray[i].ref
+        h555.innerHTML = myarray[i].fruit
+        refplace.appendChild(h55)
+        desplae.appendChild(h555)
     }
 }
 
+function mytheme(){
+    if(mythememode.value == "dark"){
+        console.log("ayeh dark")
+        document.body.classList.toggle("dark")
+        document.body.classList.remove("t3")
+        document.body.classList.remove("midnight")
+        document.body.classList.remove("cloud")
+
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.remove("crismone")
+        }
+        facimg.src = 'file-invoice-dollar-solid.svg'
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.remove("inputcrismone")
+        }
+
+    }else if(mythememode.value == "t3"){
+        document.body.classList.toggle("t3")
+        document.body.classList.remove("dark")
+        document.body.classList.remove("midnight")
+        document.body.classList.remove("cloud")
+
+        facimg.src = 'file-invoice-dollar-solid.svg'
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.add("crismone")
+        }
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.add("inputcrismone")
+        }
+    }else if(mythememode.value == "midnight"){
+        document.body.classList.toggle("midnight")
+        document.body.classList.remove("dark")
+        document.body.classList.remove("t3")
+        document.body.classList.remove("cloud")
+
+        facimg.src = 'file-invoice-dollar-solid.svg'
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.add("crismone")
+        }
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.add("inputcrismone")
+        }
+    }else if(mythememode.value == "white"){
+        document.body.classList.remove("dark")
+        document.body.classList.remove("t3")
+        document.body.classList.remove("midnight")
+        document.body.classList.remove("cloud")
+
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.remove("crismone")
+        }
+        facimg.src = 'file-invoice-solid.svg'
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.remove("inputcrismone")
+        }
+    }else if(mythememode.value == "cloudy"){
+        document.body.classList.toggle("cloud")
+        document.body.classList.remove("dark")
+        document.body.classList.remove("t3")
+        document.body.classList.remove("midnight")
+
+        facimg.src = 'file-invoice-dollar-solid.svg'
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.add("crismone")
+        }
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.add("inputcrismone")
+        }
+    }else{
+        Errormsg("Nothing")
+    }
+}
 mytable.innerHTML = JSON.parse(localStorage.getItem('mytable'))
+

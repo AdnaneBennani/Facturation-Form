@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    padding: 50px 5%;
+    padding: 50px;
     position: relative;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -13,7 +13,7 @@ body{
 form{
     width: 100%;
     display: flex;
-    height: auto;
+    height: 20%;
     background-color: rgba(128, 128, 128, 0.322);
     padding: 15px;
     border-radius: 6px;
@@ -38,8 +38,36 @@ form legend{
     background-color: #0E0E10;
     color: white;
 }
+.t3{
+    background-image: linear-gradient(to right , rgb(74,4,4),#010000);
+    color: white;
+}
+.midnight{
+    background-image: linear-gradient(to right , rgb(39,34,96),#04010A);
+    color: white;
+}
+.cloud{
+    background-image: linear-gradient(to right , #1D3D50,#3F3F5C);
+    color: white;
+}
+.crismone{
+    background-color: gray !important;
+    border: none !important;
+    outline: none !important;
+    color: white;
+
+}
+.inputcrismone{
+    background-color: rgba(128, 128, 128, 0.356);
+    border-color: white !important;
+    outline-color: white !important;
+}
 .darktoggle{
     background-color: white;
+}
+.selecttheme{
+    background-color: gray;
+    outline: 1px solid gray !important ;
 }
 input{
     padding: 10px 15px;
@@ -52,7 +80,6 @@ input:focus{
 select{
     padding: 10px;
     outline: 1px solid rgb(16, 66, 158) ;
-
 }
 
 .tables{
@@ -95,6 +122,7 @@ button{
     color: white;
     font-weight: 700;
     transition: all ease 0.2s;
+    border-radius: 3px;
 }
 button:hover{
     transform: scale(1.03);
@@ -123,6 +151,7 @@ Title{
     gap: 15px;
     flex-direction: column;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 #NewReference input{
     width: calc(100% - 20px);
@@ -167,7 +196,50 @@ Title{
     border-radius: 7px;
     padding: 15px;
 }
-
+#PrintFunc{
+    width: 500px;
+    height: 200px;
+    background-color: #222121;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+#PrintFunc input{
+    width: calc(100% - 20px);
+    margin: 10px;
+}
+#listdrefer{
+    width: 500px;
+    height: fit-content;
+    background-color: #222121;
+    display: none;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    color: White;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}
+.T{
+    text-decoration: underline;
+    color: blanchedalmond;
+    font-size: medium;
+}
+#refplace h5,#desplae h5{
+    color: white;
+    font-size: 20px;
+}
 @keyframes notifanim {
     0%{
         right: -470px;
