@@ -74,10 +74,10 @@ function Addtotable(){
             <td>${mytva.value}</td>
             <td>${total.toFixed(2)}</td>
             </tr>`
-            Succesmsg("Added Succefully to the table ");
+            Succesmsg("Success","Added Succefully to the table ");
             localStorage.setItem('mytable', JSON.stringify(savetable));
         }else{
-            Errormsg("Designation Not Defined")
+            Errormsg("Error","Designation Not Defined")
         }
         let allinput = document.getElementsByTagName("input")
         console.log(allinput)
@@ -87,7 +87,7 @@ function Addtotable(){
             designa.style.border = "none"
         }
     }else{
-        Errormsg("Inputs Are Empty !!")
+        Errormsg("Error","Inputs Are Empty !!")
     }
 }
 
@@ -110,12 +110,12 @@ function addref(){
             if(!Exist) {
                 myarray.push({ fruit: refvalue, ref: ref });
                 localStorage.setItem('myArray', JSON.stringify(myarray));
-                Succesmsg("Reference Added Successfully");
+                Succesmsg("Succes","Reference Added Successfully");
             }else{
-                Errormsg("Designation or Reference already Exist");
+                Errormsg("Error","Designation or Reference already Exist");
             }
         }else{
-        Errormsg("Designation or Reference Empty");
+        Errormsg("Error","Designation or Reference Empty");
     }
     console.log(myarray)
 }
@@ -128,19 +128,21 @@ closeitem.forEach((item)=>{
 
 
 
-function Errormsg(msg){
+function Errormsg(title,msg){
     let nf = document.createElement('div')
     nf.classList.add('NotifError')
-    nf.innerHTML = msg
+    nf.innerHTML = `<div class = "flexi"><h2>${title}</h2><i class="fa-solid fa-circle-info"></i></div>
+    <p>${msg}</p>`
     Notifplace.appendChild(nf)
     setTimeout(()=>{
         nf.remove();
     },4000)
 }
-function Succesmsg(msg){
+function Succesmsg(title,msg){
     let nf = document.createElement('div')
     nf.classList.add('NotifSuccess')
-    nf.innerHTML = msg
+    nf.innerHTML = `<div class = "flexi"><h2>${title}</h2><i class="fa-solid fa-circle-info"></i></div>
+    <p>${msg}</p>`
     Notifplace.appendChild(nf)
     setTimeout(()=>{
         nf.remove();
@@ -162,7 +164,7 @@ function showprintask(){
 function ClearAllT(){
     event.preventDefault()
     localStorage.removeItem('mytable')
-    Succesmsg("Table Cleared")
+    Succesmsg("Succes","Table Cleared")
     setTimeout(()=>{
         location.reload();
     },1000)
@@ -250,7 +252,7 @@ function mytheme(){
             allmyinp[i].classList.add("inputcrismone")
         }
     }else{
-        Errormsg("Nothing")
+        Errormsg("Error","Nothing")
     }
 }
 mytable.innerHTML = JSON.parse(localStorage.getItem('mytable'))

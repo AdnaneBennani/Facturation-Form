@@ -184,6 +184,11 @@ Title{
     border-radius: 7px;
     padding: 15px;
 }
+.flexi{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .NotifSuccess{
     font-weight: 500;
     margin: 15px 0;
