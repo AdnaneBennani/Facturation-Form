@@ -40,27 +40,28 @@ form legend{
 }
 .t3{
     background-image: linear-gradient(to right , rgb(74,4,4),#010000);
-    color: white;
+    color: white !important;
 }
 .midnight{
     background-image: linear-gradient(to right , rgb(39,34,96),#04010A);
-    color: white;
+    color: white !important;
 }
 .cloud{
     background-image: linear-gradient(to right , #1D3D50,#3F3F5C);
-    color: white;
+    color: white !important;
 }
 .crismone{
     background-color: gray !important;
     border: none !important;
     outline: none !important;
-    color: white;
+    color: white !important;
 
 }
 .inputcrismone{
     background-color: rgba(128, 128, 128, 0.356);
     border-color: white !important;
     outline-color: white !important;
+    color: white;
 }
 .darktoggle{
     background-color: white;

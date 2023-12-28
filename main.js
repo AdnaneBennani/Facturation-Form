@@ -185,12 +185,10 @@ function liste(){
 
 function mytheme(){
     if(mythememode.value == "dark"){
-        console.log("ayeh dark")
         document.body.classList.toggle("dark")
         document.body.classList.remove("t3")
         document.body.classList.remove("midnight")
         document.body.classList.remove("cloud")
-
         for (let i = 0; i < allmybtn.length; i++) {
             allmybtn[i].classList.remove("crismone")
         }
@@ -256,4 +254,3 @@ function mytheme(){
     }
 }
 mytable.innerHTML = JSON.parse(localStorage.getItem('mytable'))
-
