@@ -11,26 +11,35 @@ var mysuccnotif = document.getElementById("succnotiff")
 var errortext = document.getElementById("textalert")
 var succestext = document.getElementById("textalertSUC")
 var newitem = document.getElementById("NewReference")
-var closeitem = document.getElementById("closerefe")
+var closeitem = document.querySelectorAll(".closerefe")
 var facimg = document.getElementById("facturimg")
 var Notifplace = document.getElementById("NotifBox")
+var printask = document.getElementById("PrintFunc")
+var listdrefer = document.getElementById("listdrefer")
+let refplace = document.getElementById("refplace")
+let desplae = document.getElementById("desplae")
+var mythememode = document.getElementById("mode")
+var allmybtn = document.getElementsByTagName("button")
+var allmyinp = document.getElementsByTagName("input")
+
+
 var myarray = [
     {
         fruit:"",
         ref:""
     }
 ]
-loadArrayFromLocalStorage();    
+loadstorage();    
 
-darkmodebtn.addEventListener("click",() =>{
-    document.body.classList.toggle("dark")
-    darkmodebtn.classList.toggle("darktoggle")
-    if (facimg.src.includes('file-invoice-solid.svg')) {
-        facimg.src = 'file-invoice-dollar-solid.svg';
-    } else{
-        facimg.src = 'file-invoice-solid.svg';
-    }
-})
+// darkmodebtn.addEventListener("click",() =>{
+//     document.body.classList.toggle("dark")
+//     darkmodebtn.classList.toggle("darktoggle")
+//     if (facimg.src.includes('file-invoice-solid.svg')) {
+//         facimg.src = 'file-invoice-dollar-solid.svg';
+//     } else{
+//         facimg.src = 'file-invoice-solid.svg';
+//     }
+// })
 
 function searchrefer(){
     for(let i = 0 ;i < myarray.length;i++){
@@ -65,10 +74,10 @@ function Addtotable(){
             <td>${mytva.value}</td>
             <td>${total.toFixed(2)}</td>
             </tr>`
-            Succesmsg("Added Succefully to the table ");
+            Succesmsg("Success","Added Succefully to the table ");
             localStorage.setItem('mytable', JSON.stringify(savetable));
         }else{
-            Errormsg("Designation Not Defined")
+            Errormsg("Error","Designation Not Defined")
         }
         let allinput = document.getElementsByTagName("input")
         console.log(allinput)
@@ -78,7 +87,7 @@ function Addtotable(){
             designa.style.border = "none"
         }
     }else{
-        Errormsg("Inputs Are Empty !!")
+        Errormsg("Error","Inputs Are Empty !!")
     }
 }
 
@@ -101,43 +110,150 @@ function addref(){
             if(!Exist) {
                 myarray.push({ fruit: refvalue, ref: ref });
                 localStorage.setItem('myArray', JSON.stringify(myarray));
-                Succesmsg("Reference Added Successfully");
+                Succesmsg("Succes","Reference Added Successfully");
             }else{
-                Errormsg("Designation or Reference already Exist");
+                Errormsg("Error","Designation or Reference already Exist");
             }
         }else{
-        Errormsg("Designation or Reference Empty");
+        Errormsg("Error","Designation or Reference Empty");
     }
     console.log(myarray)
 }
-closeitem.addEventListener("click", ()=>{
-    newitem.style.display = "none"
+
+closeitem.forEach((item)=>{
+    item.addEventListener("click",()=>{
+        item.parentElement.parentElement.style.display = "none";
+    })
 })
 
-function Errormsg(msg){
+
+
+function Errormsg(title,msg){
     let nf = document.createElement('div')
     nf.classList.add('NotifError')
-    nf.innerHTML = msg
+    nf.innerHTML = `<div class = "flexi"><h2>${title}</h2><i class="fa-solid fa-circle-info"></i></div>
+    <p>${msg}</p>`
     Notifplace.appendChild(nf)
     setTimeout(()=>{
         nf.remove();
     },4000)
 }
-function Succesmsg(msg){
+function Succesmsg(title,msg){
     let nf = document.createElement('div')
     nf.classList.add('NotifSuccess')
-    nf.innerHTML = msg
+    nf.innerHTML = `<div class = "flexi"><h2>${title}</h2><i class="fa-solid fa-circle-info"></i></div>
+    <p>${msg}</p>`
     Notifplace.appendChild(nf)
     setTimeout(()=>{
         nf.remove();
     },4000)
 }
 
-function loadArrayFromLocalStorage() {
+function loadstorage() {
     var savedArray = JSON.parse(localStorage.getItem('myArray'));
     if (savedArray) {
-        myarray = savedArray; // Update myArray with the data from localStorage
+        myarray = savedArray; 
+    }
+}
+function showprintask(){
+    event.preventDefault()
+
+    printask.style.display = "flex"
+}
+
+function ClearAllT(){
+    event.preventDefault()
+    localStorage.removeItem('mytable')
+    Succesmsg("Succes","Table Cleared")
+    setTimeout(()=>{
+        location.reload();
+    },1000)
+}
+
+function liste(){
+    event.preventDefault()
+    listdrefer.style.display = "flex"
+    for(let i = 1 ; i<=myarray.length ; i++){
+        let h55 = document.createElement('h5')
+        let h555 = document.createElement('h5')
+        h55.innerHTML = myarray[i].ref
+        h555.innerHTML = myarray[i].fruit
+        refplace.appendChild(h55)
+        desplae.appendChild(h555)
     }
 }
 
+function mytheme(){
+    if(mythememode.value == "dark"){
+        console.log("ayeh dark")
+        document.body.classList.toggle("dark")
+        document.body.classList.remove("t3")
+        document.body.classList.remove("midnight")
+        document.body.classList.remove("cloud")
+
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.remove("crismone")
+        }
+        facimg.src = 'file-invoice-dollar-solid.svg'
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.remove("inputcrismone")
+        }
+
+    }else if(mythememode.value == "t3"){
+        document.body.classList.toggle("t3")
+        document.body.classList.remove("dark")
+        document.body.classList.remove("midnight")
+        document.body.classList.remove("cloud")
+
+        facimg.src = 'file-invoice-dollar-solid.svg'
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.add("crismone")
+        }
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.add("inputcrismone")
+        }
+    }else if(mythememode.value == "midnight"){
+        document.body.classList.toggle("midnight")
+        document.body.classList.remove("dark")
+        document.body.classList.remove("t3")
+        document.body.classList.remove("cloud")
+
+        facimg.src = 'file-invoice-dollar-solid.svg'
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.add("crismone")
+        }
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.add("inputcrismone")
+        }
+    }else if(mythememode.value == "white"){
+        document.body.classList.remove("dark")
+        document.body.classList.remove("t3")
+        document.body.classList.remove("midnight")
+        document.body.classList.remove("cloud")
+
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.remove("crismone")
+        }
+        facimg.src = 'file-invoice-solid.svg'
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.remove("inputcrismone")
+        }
+    }else if(mythememode.value == "cloudy"){
+        document.body.classList.toggle("cloud")
+        document.body.classList.remove("dark")
+        document.body.classList.remove("t3")
+        document.body.classList.remove("midnight")
+
+        facimg.src = 'file-invoice-dollar-solid.svg'
+        for (let i = 0; i < allmybtn.length; i++) {
+            allmybtn[i].classList.add("crismone")
+        }
+        for (let i = 0; i < allmyinp.length; i++) {
+            allmyinp[i].classList.add("inputcrismone")
+        }
+    }else{
+        Errormsg("Error","Nothing")
+    }
+}
 mytable.innerHTML = JSON.parse(localStorage.getItem('mytable'))
+

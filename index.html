@@ -13,7 +13,16 @@
         <div class="THEFORMS">
             <div class="darkxlegend">
                 <legend> <img id="facturimg" src="file-invoice-solid.svg">Facturation</legend>
-                <div class="x" id="darkmode"></div>
+                <div class="" id="">
+                    <select  id="mode" onchange="mytheme()" name="Select">
+                        <option  value="0">Select Theme</option>
+                        <option  value="white">White Mode</option>
+                        <option  value="dark">Dark Mode</option>
+                        <option  value="t3">Crimson Moon</option>
+                        <option  value="midnight">Midnight Blurple</option>
+                        <option  value="cloudy">Retro Raincloud</option>
+                    </select>
+                </div>
             </div>
             <label>Reference </label>
             <input type="text" name="" id="refer" oninput="searchrefer()">
@@ -32,6 +41,7 @@
             </select>
             <button onclick="Addtotable()">Ajouter a la liste</button>
             <button onclick="AddNEWref()">Ajouter Une Reference</button>
+            <button onclick="liste()">Liste de Reference</button>
         </div>
         <hr>
         <div class="tables">
@@ -50,6 +60,8 @@
 
                 </tbody>
             </table>
+            <button id="printbtn" onclick="ClearAllT()">Clear Table</button>
+
         </div>
     </form>
     <div id="NotifBox">
@@ -62,7 +74,18 @@
         </div>
         <div>
             <button class="btn" onclick=" addref()">Add</button>
-            <button class="btn" id="closerefe">Close</button>
+            <button class="closerefe btn">Close</button>
+        </div>
+    </div>
+    <div id="listdrefer">
+        <div id="refplace">
+            <h4 class="T">Ref</h4>        
+        </div>
+        <div id="desplae">
+            <h4 class="T">Design</h4>        
+        </div>
+        <div>
+            <button class="closerefe btn">Close</button>
         </div>
     </div>
     <script src="main.js"></script>
