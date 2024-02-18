@@ -223,6 +223,10 @@ Title{
     width: calc(100% - 20px);
     margin: 10px;
 }
+.ref{
+    display: flex;
+    gap: 20px;
+}
 #listdrefer{
     width: 500px;
     height: fit-content;
@@ -237,6 +241,7 @@ Title{
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
+    flex-direction: column;
 }
 .T{
     text-decoration: underline;

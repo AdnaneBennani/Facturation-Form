@@ -16,8 +16,8 @@ var facimg = document.getElementById("facturimg")
 var Notifplace = document.getElementById("NotifBox")
 var printask = document.getElementById("PrintFunc")
 var listdrefer = document.getElementById("listdrefer")
-let refplace = document.getElementById("refplace")
-let desplae = document.getElementById("desplae")
+let refplace = document.getElementById("refplaceh5")
+let desplae = document.getElementById("desplaeh5")
 var mythememode = document.getElementById("mode")
 var allmybtn = document.getElementsByTagName("button")
 var allmyinp = document.getElementsByTagName("input")
@@ -173,14 +173,16 @@ function ClearAllT(){
 function liste(){
     event.preventDefault()
     listdrefer.style.display = "flex"
-    for(let i = 1 ; i<=myarray.length ; i++){
-        let h55 = document.createElement('h5')
-        let h555 = document.createElement('h5')
-        h55.innerHTML = myarray[i].ref
-        h555.innerHTML = myarray[i].fruit
-        refplace.appendChild(h55)
-        desplae.appendChild(h555)
-    }
+    refplace.innerHTML = myarray.map((item)=>`
+    <h5>${item.ref}</h5> `).join("")
+    desplae.innerHTML = myarray.map((item)=>`
+    <h5>${item.fruit}</h5> `).join("")
+}
+function ClearAllListRef(){
+    myarray = []
+    localStorage.setItem('myArray', JSON.stringify(myarray));
+    console.log(myarray)
+    
 }
 
 function mytheme(){
